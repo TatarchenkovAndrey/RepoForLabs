@@ -1,0 +1,55 @@
+﻿@page
+@using Vue.Pages
+@model Vue.Pages.ContactModel
+@{
+    ViewData["Title"] = "Contact";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>Ждем вашей обратной связи</h3>
+
+
+<div>
+    <form asp-action="Send" asp-controller="Contact">
+        <div class="validation" asp-validation-summary="ModelOnly"></div>
+        <div>
+            <label asp-for="Sender"></label>
+            <br />
+            <input asp-for="Sender" placeholder="Введите Email">
+            <span asp-validation-for="Sender" />
+        </div>
+        <br />
+        <div>
+            <label asp-for="Subject"></label>
+            <br />
+            <input asp-for="Subject" placeholder="Введите тему" />
+            <span asp-validation-for="Subject" />
+        </div>
+        <br />
+        <div>
+            <label asp-for="Message"></label>
+            <br />
+            <textarea asp-for="Message" rows="5" cols="40" placeholder="Введите текст сообщения"> </textarea>
+            <span asp-validation-for="Message" />
+        </div>
+        <br />
+
+        <input type="submit" />
+    </form>
+</div>
+@*@section scripts
+    {
+    <environment names="Development">
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"
+                asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"
+                asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
+        </script>
+    </environment>
+}*@
